@@ -22562,9 +22562,14 @@
 	            this.getIcon('checked')
 	          ),
 	          _react2.default.createElement(
-	            'h4',
+	            'div',
 	            null,
-	            this.props.network
+	            _react2.default.createElement('i', { 'class': 'fa-solid fa-circle' }),
+	            _react2.default.createElement(
+	              'h4',
+	              null,
+	              this.props.network
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',

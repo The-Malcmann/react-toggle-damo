@@ -150,7 +150,10 @@ export default class Toggle extends PureComponent {
           <div className='react-toggle-track-check'>
             {this.getIcon('checked')}
           </div>
+          <div>
+          <i class="fa-solid fa-circle"></i>
           <h4>{this.props.network}</h4>
+          </div>
           <div className='react-toggle-track-x'>
             {this.getIcon('unchecked')}
           </div>
