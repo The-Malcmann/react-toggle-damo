@@ -162,7 +162,6 @@ export default class Toggle extends PureComponent {
           <div className='react-toggle-thumb'>
             {this.state.checked ? <h4>{this.props.checkedText}</h4> : <h4>{this.props.uncheckedText}</h4>}
           </div>
-
           <input
             {...inputProps}
             ref={ref => { this.input = ref }}
