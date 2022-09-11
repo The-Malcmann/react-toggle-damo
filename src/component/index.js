@@ -147,29 +147,28 @@ export default class Toggle extends PureComponent {
         onTouchMove={this.handleTouchMove}
         onTouchEnd={this.handleTouchEnd}>
         <div className='react-toggle-track'>
-          <div class="text-layout">
-            <div className='react-toggle-track-check'>
-              {this.getIcon('checked')}
-            </div>
-            <div>
-              <i class="fa-solid fa-circle"></i>
-              <h4>{this.props.network}</h4>
-              <div className='react-toggle-track-x'>
-                {this.getIcon('unchecked')}
-              </div>
+          <div className='react-toggle-track-check'>
+            {this.getIcon('checked')}
+          </div>
+          <div>
+            <i class="fa-solid fa-circle"></i>
+            <h4>{this.props.network}</h4>
+            <div className='react-toggle-track-x'>
+              {this.getIcon('unchecked')}
             </div>
           </div>
-          <div className='react-toggle-thumb'>
-            {this.state.checked ? <h4>{this.props.checkedText}</h4> : <h4>{this.props.uncheckedText}</h4>}
-          </div>
-          <input
-            {...inputProps}
-            ref={ref => { this.input = ref }}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
-            className='react-toggle-screenreader-only'
-            type='checkbox' />
         </div>
+        <div className='react-toggle-thumb'>
+          {this.state.checked ? <h4>{this.props.checkedText}</h4> : <h4>{this.props.uncheckedText}</h4>}
+        </div>
+
+        <input
+          {...inputProps}
+          ref={ref => { this.input = ref }}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          className='react-toggle-screenreader-only'
+          type='checkbox' />
       </div>
     )
   }

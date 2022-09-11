@@ -40,7 +40,7 @@
 .react-toggle-track {
   width: 50px;
   height: 24px;
-  padding: 0;
+  padding: 12px 4px;
   border-radius: 30px;
   background-color: #4D4D4D;
   -webkit-transition: all 0.2s ease;
@@ -138,8 +138,4 @@
   -webkit-box-shadow: 0px 0px 5px 5px #0099E0;
   -moz-box-shadow: 0px 0px 5px 5px #0099E0;
   box-shadow: 0px 0px 5px 5px #0099E0;
-}
-
-.text-layout {
-  padding: 12px 8px;
 }
