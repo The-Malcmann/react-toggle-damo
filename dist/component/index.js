@@ -221,12 +221,12 @@ var Toggle = function (_PureComponent) {
               'h4',
               null,
               this.props.network
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'react-toggle-track-x' },
+              this.getIcon('unchecked')
             )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'react-toggle-track-x' },
-            this.getIcon('unchecked')
           )
         ),
         _react2.default.createElement(
