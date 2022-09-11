@@ -22439,7 +22439,7 @@
 	      }
 	
 	      var checked = this.props.hasOwnProperty('checked') ? this.props.checked : checkbox.checked;
-	      if (!metamaskClosed) {
+	      if (!this.state.metamaskClosed) {
 	        return;
 	      }
 	      this.setState({ checked: checked });
@@ -22450,7 +22450,7 @@
 	      if (this.props.disabled) {
 	        return;
 	      }
-	      if (!this.props.metamaskClosed) {
+	      if (!this.state.metamaskClosed) {
 	        return;
 	      }
 	      this.startX = (0, _util.pointerCoord)(event).x;
