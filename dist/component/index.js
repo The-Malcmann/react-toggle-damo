@@ -216,7 +216,7 @@ var Toggle = function (_PureComponent) {
           _react2.default.createElement(
             'div',
             { 'class': 'network' },
-            _react2.default.createElement('i', { 'class': 'fa-solid fa-circle network-circle' }),
+            _react2.default.createElement('i', { 'class': 'fa-solid fa-circle fa-2xs network-circle' }),
             _react2.default.createElement(
               'h4',
               null,
