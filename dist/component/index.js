@@ -93,6 +93,7 @@ var Toggle = function (_PureComponent) {
       }
 
       var checked = this.props.hasOwnProperty('checked') ? this.props.checked : checkbox.checked;
+      console.log(checked);
       this.setState({ checked: checked });
     }
   }, {
@@ -101,8 +102,10 @@ var Toggle = function (_PureComponent) {
       if (this.props.disabled) {
         return;
       }
-      this.startX = (0, _util.pointerCoord)(event).x;
-      this.activated = true;
+      if (this.props.metamaskclosed) {
+        this.startX = (0, _util.pointerCoord)(event).x;
+        this.activated = true;
+      }
     }
   }, {
     key: 'handleTouchMove',

@@ -22405,6 +22405,7 @@
 	    _this.previouslyChecked = !!(props.checked || props.defaultChecked);
 	    _this.state = {
 	      metamaskclosed: props.metamaskclosed,
+	      clicked: !!props.clicked,
 	      checked: !!(props.checked || props.defaultChecked),
 	      hasFocus: false
 	    };
@@ -22435,22 +22436,18 @@
 	        event.preventDefault();
 	        checkbox.focus();
 	        checkbox.click();
+	        this.setState({ clicked: !!this.state.clicked });
 	        return;
 	      }
 	
 	      var checked = this.props.hasOwnProperty('checked') ? this.props.checked : checkbox.checked;
-	      if (!this.state.metamaskclosed) {
-	        return;
-	      }
+	      console.log(checked);
 	      this.setState({ checked: checked });
 	    }
 	  }, {
 	    key: 'handleTouchStart',
 	    value: function handleTouchStart(event) {
 	      if (this.props.disabled) {
-	        return;
-	      }
-	      if (!this.state.metamaskclosed) {
 	        return;
 	      }
 	      this.startX = (0, _util.pointerCoord)(event).x;
@@ -22470,11 +22467,10 @@
 	          this.activated = true;
 	        } else if (currentX - 15 > this.startX) {
 	          this.setState({ checked: true });
-	          if (!this.state.metamaskclosed) {
-	            return;
+	          if (this.state.metamaskclosed) {
+	            this.startX = currentX;
+	            this.activated = currentX < this.startX + 5;
 	          }
-	          this.startX = currentX;
-	          this.activated = currentX < this.startX + 5;
 	        }
 	      }
 	    }
@@ -22629,6 +22625,7 @@
 	
 	Toggle.propTypes = {
 	  checked: _propTypes2.default.bool,
+	  clicked: _propTypes2.default.bool,
 	  metamaskclosed: _propTypes2.default.bool,
 	  disabled: _propTypes2.default.bool,
 	  defaultChecked: _propTypes2.default.bool,
