@@ -57,6 +57,7 @@ var Toggle = function (_PureComponent) {
     _this.previouslyChecked = !!(props.checked || props.defaultChecked);
     _this.state = {
       metamaskclosed: props.metamaskclosed,
+      clicked: !!props.clicked,
       checked: !!(props.checked || props.defaultChecked),
       hasFocus: false
     };
@@ -87,6 +88,7 @@ var Toggle = function (_PureComponent) {
         event.preventDefault();
         checkbox.focus();
         checkbox.click();
+        this.setState({ clicked: !!this.state.clicked });
         return;
       }
 
@@ -116,11 +118,10 @@ var Toggle = function (_PureComponent) {
           this.activated = true;
         } else if (currentX - 15 > this.startX) {
           this.setState({ checked: true });
-          if (!this.state.metamaskclosed) {
-            return;
+          if (this.state.metamaskclosed) {
+            this.startX = currentX;
+            this.activated = currentX < this.startX + 5;
           }
-          this.startX = currentX;
-          this.activated = currentX < this.startX + 5;
         }
       }
     }
@@ -275,6 +276,7 @@ Toggle.defaultProps = {
 
 Toggle.propTypes = {
   checked: _propTypes2.default.bool,
+  clicked: _propTypes2.default.bool,
   metamaskclosed: _propTypes2.default.bool,
   disabled: _propTypes2.default.bool,
   defaultChecked: _propTypes2.default.bool,

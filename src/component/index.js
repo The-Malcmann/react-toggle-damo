@@ -17,6 +17,7 @@ export default class Toggle extends PureComponent {
     this.previouslyChecked = !!(props.checked || props.defaultChecked)
     this.state = {
       metamaskclosed: (props.metamaskclosed),
+      clicked: !!(props.clicked),
       checked: !!(props.checked || props.defaultChecked),
       hasFocus: false,
     }
@@ -43,6 +44,7 @@ export default class Toggle extends PureComponent {
       event.preventDefault()
       checkbox.focus()
       checkbox.click()
+      this.setState({clicked: !!this.state.clicked});
       return
     }
 
@@ -70,11 +72,10 @@ export default class Toggle extends PureComponent {
         this.activated = true
       } else if (currentX - 15 > this.startX) {
         this.setState({ checked: true })
-        if(!this.state.metamaskclosed) {
-          return
+        if(this.state.metamaskclosed) {
+          this.startX = currentX
+          this.activated = (currentX < this.startX + 5)
         }
-        this.startX = currentX
-        this.activated = (currentX < this.startX + 5)
       }
     }
   }
@@ -189,6 +190,7 @@ Toggle.defaultProps = {
 
 Toggle.propTypes = {
   checked: PropTypes.bool,
+  clicked: PropTypes.bool,
   metamaskclosed: PropTypes.bool,
   disabled: PropTypes.bool,
   defaultChecked: PropTypes.bool,
