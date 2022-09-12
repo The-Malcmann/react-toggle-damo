@@ -56,7 +56,7 @@ var Toggle = function (_PureComponent) {
     _this.handleBlur = _this.handleBlur.bind(_this);
     _this.previouslyChecked = !!(props.checked || props.defaultChecked);
     _this.state = {
-      metamaskClosed: !!(props.metamaskClosed || false),
+      metamaskClosed: props.metamaskClosed,
       checked: !!(props.checked || props.defaultChecked),
       hasFocus: false
     };

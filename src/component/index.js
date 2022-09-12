@@ -16,7 +16,7 @@ export default class Toggle extends PureComponent {
     this.handleBlur = this.handleBlur.bind(this)
     this.previouslyChecked = !!(props.checked || props.defaultChecked)
     this.state = {
-      metamaskClosed: !!(props.metamaskClosed || false),
+      metamaskclosed: (props.metamaskclosed),
       checked: !!(props.checked || props.defaultChecked),
       hasFocus: false,
     }
@@ -29,7 +29,7 @@ export default class Toggle extends PureComponent {
       // https://reactjs.org/docs/react-component.html#componentdidupdate
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ checked: !!this.props.checked })
-      this.setState({metamaskClosed: !!this.props.metamaskClosed})
+      this.setState({ metamaskclosed: !!this.props.metamaskclosed })
     }
   }
 
@@ -47,7 +47,9 @@ export default class Toggle extends PureComponent {
     }
 
     const checked = this.props.hasOwnProperty('checked') ? this.props.checked : checkbox.checked
-    if(!this.state.metamaskClosed) {return}
+    if (!this.state.metamaskclosed) {
+      return
+    }
     this.setState({ checked })
   }
 
@@ -55,7 +57,7 @@ export default class Toggle extends PureComponent {
     if (this.props.disabled) {
       return
     }
-    if (!this.state.metamaskClosed) {
+    if (!this.state.metamaskclosed) {
       return
     }
     this.startX = pointerCoord(event).x
@@ -190,7 +192,7 @@ Toggle.defaultProps = {
 
 Toggle.propTypes = {
   checked: PropTypes.bool,
-  metamaskClosed: PropTypes.bool,
+  metamaskclosed: PropTypes.bool,
   disabled: PropTypes.bool,
   defaultChecked: PropTypes.bool,
   onChange: PropTypes.func,

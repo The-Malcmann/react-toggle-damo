@@ -22404,7 +22404,7 @@
 	    _this.handleBlur = _this.handleBlur.bind(_this);
 	    _this.previouslyChecked = !!(props.checked || props.defaultChecked);
 	    _this.state = {
-	      metamaskClosed: !!(props.metamaskClosed || false),
+	      metamaskClosed: props.metamaskClosed,
 	      checked: !!(props.checked || props.defaultChecked),
 	      hasFocus: false
 	    };
@@ -22439,7 +22439,7 @@
 	      }
 	
 	      var checked = this.props.hasOwnProperty('checked') ? this.props.checked : checkbox.checked;
-	      if (!metamaskClosed) {
+	      if (!this.state.metamaskClosed) {
 	        return;
 	      }
 	      this.setState({ checked: checked });
@@ -22450,7 +22450,7 @@
 	      if (this.props.disabled) {
 	        return;
 	      }
-	      if (!this.props.metamaskClosed) {
+	      if (!this.state.metamaskClosed) {
 	        return;
 	      }
 	      this.startX = (0, _util.pointerCoord)(event).x;
