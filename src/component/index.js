@@ -47,17 +47,11 @@ export default class Toggle extends PureComponent {
     }
 
     const checked = this.props.hasOwnProperty('checked') ? this.props.checked : checkbox.checked
-    if (!this.state.metamaskclosed) {
-      return
-    }
     this.setState({ checked })
   }
 
   handleTouchStart(event) {
     if (this.props.disabled) {
-      return
-    }
-    if (!this.state.metamaskclosed) {
       return
     }
     this.startX = pointerCoord(event).x

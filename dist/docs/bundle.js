@@ -22439,18 +22439,12 @@
 	      }
 	
 	      var checked = this.props.hasOwnProperty('checked') ? this.props.checked : checkbox.checked;
-	      if (!this.state.metamaskclosed) {
-	        return;
-	      }
 	      this.setState({ checked: checked });
 	    }
 	  }, {
 	    key: 'handleTouchStart',
 	    value: function handleTouchStart(event) {
 	      if (this.props.disabled) {
-	        return;
-	      }
-	      if (!this.state.metamaskclosed) {
 	        return;
 	      }
 	      this.startX = (0, _util.pointerCoord)(event).x;
