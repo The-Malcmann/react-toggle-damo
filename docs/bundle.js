@@ -22404,7 +22404,7 @@
 	    _this.handleBlur = _this.handleBlur.bind(_this);
 	    _this.previouslyChecked = !!(props.checked || props.defaultChecked);
 	    _this.state = {
-	      metamaskClosed: props.metamaskClosed,
+	      metamaskclosed: props.metamaskclosed,
 	      checked: !!(props.checked || props.defaultChecked),
 	      hasFocus: false
 	    };
@@ -22420,7 +22420,7 @@
 	        // https://reactjs.org/docs/react-component.html#componentdidupdate
 	        // eslint-disable-next-line react/no-did-update-set-state
 	        this.setState({ checked: !!this.props.checked });
-	        this.setState({ metamaskClosed: !!this.props.metamaskClosed });
+	        // this.setState({ metamaskclosed: !!this.props.metamaskclosed })
 	      }
 	    }
 	  }, {
@@ -22439,7 +22439,7 @@
 	      }
 	
 	      var checked = this.props.hasOwnProperty('checked') ? this.props.checked : checkbox.checked;
-	      if (!this.state.metamaskClosed) {
+	      if (!this.state.metamaskclosed) {
 	        return;
 	      }
 	      this.setState({ checked: checked });
@@ -22450,7 +22450,7 @@
 	      if (this.props.disabled) {
 	        return;
 	      }
-	      if (!this.state.metamaskClosed) {
+	      if (!this.state.metamaskclosed) {
 	        return;
 	      }
 	      this.startX = (0, _util.pointerCoord)(event).x;
@@ -22470,6 +22470,9 @@
 	          this.activated = true;
 	        } else if (currentX - 15 > this.startX) {
 	          this.setState({ checked: true });
+	          if (!this.state.metamaskclosed) {
+	            return;
+	          }
 	          this.startX = currentX;
 	          this.activated = currentX < this.startX + 5;
 	        }
@@ -22626,7 +22629,7 @@
 	
 	Toggle.propTypes = {
 	  checked: _propTypes2.default.bool,
-	  metamaskClosed: _propTypes2.default.bool,
+	  metamaskclosed: _propTypes2.default.bool,
 	  disabled: _propTypes2.default.bool,
 	  defaultChecked: _propTypes2.default.bool,
 	  onChange: _propTypes2.default.func,

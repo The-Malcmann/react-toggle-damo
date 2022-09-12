@@ -122,6 +122,9 @@ var Toggle = function (_PureComponent) {
           this.activated = true;
         } else if (currentX - 15 > this.startX) {
           this.setState({ checked: true });
+          if (!this.state.metamaskclosed) {
+            return;
+          }
           this.startX = currentX;
           this.activated = currentX < this.startX + 5;
         }
