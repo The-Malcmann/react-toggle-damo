@@ -72,7 +72,7 @@ var Toggle = function (_PureComponent) {
         // https://reactjs.org/docs/react-component.html#componentdidupdate
         // eslint-disable-next-line react/no-did-update-set-state
         this.setState({ checked: !!this.props.checked });
-        this.setState({ metamaskclosed: !!this.props.metamaskclosed });
+        // this.setState({ metamaskclosed: !!this.props.metamaskclosed })
       }
     }
   }, {
